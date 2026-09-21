@@ -10,9 +10,7 @@ class GameSession{
 
     public:
 
-        static int getActiveSessions(){
-            return activeGameSessions;
-        }
+        static int getActiveSessions();
 
         GameSession(string ipa, int uid):IPAddress(ipa), userID(uid);
 
