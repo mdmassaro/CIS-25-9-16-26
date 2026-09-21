@@ -14,8 +14,6 @@ class GameSession{
             return activeGameSessions;
         }
 
-        // static int activeGameSessions;
-
         GameSession(string ipa, int uid):IPAddress(ipa), userID(uid){
             cout << endl << "Game Session with uderID " << userID << " and IPAddress " << IPAddress << " connected " << endl;
             activeGameSessions += 1;
@@ -27,8 +25,6 @@ class GameSession{
         }
 
 };
-
-int GameSession::activeGameSessions = 0;
 
 int main(){
 
