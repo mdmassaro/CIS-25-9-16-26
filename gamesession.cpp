@@ -1,30 +1,23 @@
 #include <iostream>
+#include "gamesession.h"
+
 using namespace std;
 
-class GameSession{
+int GameSession::activeGameSessions = 0;
 
-    private:
-        string IPAddress;
-        int userID;
-        static int activeGameSessions;
+static int GameSession::getActiveSessions(){
+    return activeGameSessions;
+}
 
-    public:
+GameSession::GameSession(string ipa, int uid):IPAddress(ipa), userID(uid){
+    cout << endl << "Game Session with uderID " << userID << " and IPAddress " << IPAddress << " connected " << endl;
+    activeGameSessions += 1;
+}
 
-        static int getActiveSessions(){
-            return activeGameSessions;
-        }
-
-        GameSession(string ipa, int uid):IPAddress(ipa), userID(uid){
-            cout << endl << "Game Session with uderID " << userID << " and IPAddress " << IPAddress << " connected " << endl;
-            activeGameSessions += 1;
-        }
-
-        ~GameSession() {
-            cout << endl << "Game ended" << endl;
-            activeGameSessions -= 1;
-        }
-
-};
+GameSession::~GameSession() {
+    cout << endl << "Game ended" << endl;
+    activeGameSessions -= 1;
+}
 
 int main(){
 
